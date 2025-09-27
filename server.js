@@ -57,7 +57,7 @@ app.post('/slack/chat', verifySlackRequest, async (req, res) => {
     // Respond back to Slack
     res.json({
       response_type: 'in_channel',
-      text: Message sent to chat: "${text.trim()}"
+      text: 'Message sent to chat: "' + text.trim() + '"'
     });
 
   } catch (error) {
@@ -91,6 +91,6 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(Server running on port ${PORT});
-  console.log(n8n webhook: ${N8N_WEBHOOK_URL});
+  console.log('Server running on port ' + PORT);
+  console.log('n8n webhook: ' + N8N_WEBHOOK_URL);
 });
